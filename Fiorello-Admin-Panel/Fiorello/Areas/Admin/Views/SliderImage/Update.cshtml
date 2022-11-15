@@ -1,0 +1,22 @@
+﻿@model SliderImageUpdateDto
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update Slider Image</h4>
+                <img src="~/img/@Model.ImageUrl" style="max-width: 500px;max-height: 500px;" />
+                <form class="forms-sample" method="post" asp-action="Update" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Image">Image</label>
+                        <input asp-for="Image" class="form-control" placeholder="Image" accept="image/*">
+                        <span asp-validation-for="Image" class="text text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-action="index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

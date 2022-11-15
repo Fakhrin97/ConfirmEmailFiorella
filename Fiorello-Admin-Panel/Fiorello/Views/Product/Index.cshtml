@@ -1,0 +1,49 @@
+﻿@{
+    List<Product> products = Model;
+}
+<!-- SHOP LIST TITLE START -->
+<section id="shop-list-title">
+    <div class="container py-4">
+        <div class="row py-5">
+            <div class="col-12">
+                <h1>Shop List</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- SHOP LIST TITLE END -->
+
+<!-- SHOP LIST START -->
+<section id="shop-list">
+    <div class="container">
+        <div class="row py-5" id="prduct-list">
+            <input type="hidden" id="prduct-count" value="@ViewBag.prductCount" />
+            <partial name="_ProductPartialView" model="Model" />
+        </div>
+        <div class="row justify-content-center">
+            <button id="load-more" class="btn btn-primary mb-5">Load More</button>
+        </div>
+    </div>
+</section>
+<!-- SHOP LIST END -->
+
+<!-- SHOP LIST TITLE START -->
+<section id="shop-list-title">
+    <div class="container py-4">
+        <div class="row py-5">
+            <div class="col-12">
+                <h1>Discount List</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- SHOP LIST TITLE END -->
+<!-- PRODUCTS START -->
+<section id="products">
+    <div class="container">
+        <div class="row py-5">
+            @await Component.InvokeAsync("DiscountProducts")
+        </div>
+    </div>
+</section>
+<!-- PRODUCTS END -->

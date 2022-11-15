@@ -1,0 +1,41 @@
+﻿@model SliderUpdateDto
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Category</h4>
+                <img src="~/img/@Model.ImageUrl" />
+                <form class="forms-sample" method="post" asp-action="update" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label asp-for="Image">Image</label>
+                        <input asp-for="Image" class="form-control" placeholder="Image" accept="image/*">
+                        <span asp-validation-for="Image" class="text text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title">Title</label>
+                        <textarea id="editor" asp-for="Title" class="form-control" placeholder="@Html.Raw(Model.Title)"></textarea>
+                        <span asp-validation-for="Title" class="text text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Subtitle">Subtitle</label>
+                        <input asp-for="Subtitle" class="form-control" placeholder="Subtitle">
+                        <span asp-validation-for="Subtitle" class="text text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light" asp-action="index">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section ScriptSlide{
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}

@@ -1,0 +1,9 @@
+﻿@model List<Bio>
+
+<div class=" col-lg-4 text-center text-lg-right mt-3 mt-lg-0">
+    @foreach (var item in Model)
+    {
+       <a class="text-black-50 mr-5"
+           href="@item.SocialMediaLink">@item.Name</a>        
+    }                   
+</div>
