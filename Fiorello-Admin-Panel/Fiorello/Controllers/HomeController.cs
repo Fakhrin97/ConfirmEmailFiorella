@@ -11,21 +11,14 @@ namespace Fiorello.HomeControllers
     public class HomeController : Controller
     {
         private readonly AppDbContext _dbContext;
-        private readonly IMailService _mailService;
+       
 
-        public HomeController(AppDbContext dbContext, IMailService mailService)
+        public HomeController(AppDbContext dbContext)
         {
             _dbContext = dbContext;
-            _mailService = mailService;
         }
         public async Task<IActionResult> Index()
         {
-            //await _mailService.SendEmailAsync(new Data.RequestEmail
-            //{
-            //    Body = "Hello",
-            //    ToEmail = "fakhrinya@code.edu.az",
-            //    Subject = "for test",
-            //});
 
             Slider slider = await _dbContext.Sliders
                 .SingleAsync();

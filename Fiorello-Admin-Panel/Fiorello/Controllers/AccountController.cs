@@ -112,12 +112,13 @@ namespace Fiorello.Controllers
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
-
                 }
+
                 return View();
             }
 
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
             var resetLink = Url.Action(nameof(ConfirmEmail), "Account", new { mail = model.Email, token }, Request.Scheme, Request.Host.ToString());
 
             var requestEmail = new RequestEmail

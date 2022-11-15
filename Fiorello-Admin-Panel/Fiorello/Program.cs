@@ -43,10 +43,10 @@ namespace Fiorello
                 .AddDefaultTokenProviders(); 
 
             Constants.RootPath = builder.Environment.WebRootPath;
-
+            //For Send Mail
             builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
             builder.Services.AddTransient<IMailService, MailManager>();
-
+            //Mail Send And
             var app = builder.Build();
             app.UseSession();
             app.UseStaticFiles();
